@@ -3,7 +3,7 @@
 > **International AI Builders Congress 2026** | **Track:** Idea to Unicorn | **Domain:** FoodSphere AI → **Challenge:** *Future Foods*
 >
 > **Figma Design File (Bangla-Primary + ICT Division `July` Font):** [Sampurna AI — Figma Design System & Screens](https://www.figma.com/design/RMK4SKZQjjE9PGH6wOHLdL)  
-> **Live App URL (Azure Container Apps):** https://sampurna-ai.redglacier-c65a9cca.japaneast.azurecontainerapps.io  
+> **Live App URL (Azure Container Apps):** https://sampurna-ai.jollygrass-e2685ed1.japaneast.azurecontainerapps.io  
 > **GitHub Repository (CI/CD Auto-Deploy):** https://github.com/happinessisreal/sampurna-ai  
 > **Demo Video (≤ 3 min Unlisted YouTube):** `<YOUTUBE_UNLISTED_URL>`
 

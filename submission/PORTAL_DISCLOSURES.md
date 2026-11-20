@@ -14,8 +14,8 @@
 *(Paste concise summaries from `submission/PRELIM_ONE_PAGER.md` Sections 2 & 3.)*
 
 ## Section 4: Demo & Links
-- **Live Public Demo URL:** `https://sampurna-ai.redglacier-c65a9cca.japaneast.azurecontainerapps.io` (single-origin HTTPS on Azure Container Apps, zero login wall, `min-replicas 1`)
-- **GitHub Repository URL:** `https://github.com/happinessisreal/sampurna-ai`
+- **Live Public Demo URL:** `https://sampurna-ai.jollygrass-e2685ed1.japaneast.azurecontainerapps.io` (single-origin HTTPS on Azure Container Apps, zero login wall, `min-replicas 1`)
+- **GitHub Repository URL:** `https://github.com/happinessisreal/sampurna-ai` *(Private — add Judge Access Note if kept private during evaluation)*
 - **Figma Design URL:** `https://www.figma.com/design/RMK4SKZQjjE9PGH6wOHLdL`
 - **YouTube Demo Video URL (Unlisted, ≤ 3:00):** `<YOUTUBE_UNLISTED_URL>`
 - **Link Validator Check:** Ensure all URLs resolve HTTP 200 without sign-in (`PASS`).
