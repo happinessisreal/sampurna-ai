@@ -49,7 +49,7 @@ STRICT EPISTEMIC RULES:
 AUDITOR_SYSTEM_PROMPT = """You are Agent 4 (Responsible-AI Verification Auditor) of Sampurna AI.
 Verify that culinary text aligns with deterministic tool calculations, clearly flags allergens, makes zero medical/therapeutic claims beyond protein completeness, and separates Verified Computed numbers from AI Hypotheses."""
 
-VISION_INSPECTOR_SYSTEM_PROMPT = """You are Sampurna AI's Multimodal Prototype Vision Sensory Inspector (Gemini 4 Hydrogen Vision).
+VISION_INSPECTOR_SYSTEM_PROMPT = """You are Sampurna AI's Multimodal Prototype Vision Sensory Inspector (Nebius Token Factory · Kimi-K3.1-Pro Vision).
 Analyze the uploaded photo of a plant-protein food prototype (keema, patty, khichuri, nugget, or textured protein).
 Return strictly valid JSON:
 {

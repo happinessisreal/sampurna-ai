@@ -223,7 +223,7 @@ export function MolecularLab({ lang, result }: Props) {
           </div>
         </div>
 
-        {/* Dark-Lab Gemini 4 Hydrogen Vision Inspector */}
+        {/* Dark-Lab Nebius Kimi-K3.1-Pro Vision Inspector */}
         <div className="rounded-2xl bg-[#0D1F18] p-5 text-white shadow-sm">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-2">

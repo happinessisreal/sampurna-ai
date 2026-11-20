@@ -372,7 +372,7 @@ def _sanitize_culinary_package(
 
 
 def run_four_agent_formulation(req: FormulateAgentRequest) -> FormulateAgentResponse:
-    """Execute the 4-Agent Collaborative R&D Pipeline with Gemini 4 Hydrogen + deterministic fallback."""
+    """Execute the 4-Agent Collaborative R&D Pipeline with Nebius Token Factory (Kimi K3.1 Pro) + fallback."""
     status = get_foundry_status()
     trace: list[AgentStepTrace] = []
 
@@ -574,7 +574,7 @@ def inspect_prototype_image(
     # Built-in sample prototype / offline deterministic preview
     samples = {
         "keema_prototype": VisionInspectResponse(
-            model_used="Gemini 4 Hydrogen Vision (Sample Reference Preview)",
+            model_used="Nebius Kimi-K3.1-Pro Vision (Sample Reference Preview)",
             maillard_browning_score=82,
             fibrous_grain_score=85,
             moisture_appearance="balanced",
@@ -590,7 +590,7 @@ def inspect_prototype_image(
             ],
         ),
         "khichuri_prototype": VisionInspectResponse(
-            model_used="Gemini 4 Hydrogen Vision (Sample Reference Preview)",
+            model_used="Nebius Kimi-K3.1-Pro Vision (Sample Reference Preview)",
             maillard_browning_score=74,
             fibrous_grain_score=68,
             moisture_appearance="balanced",

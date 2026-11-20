@@ -100,6 +100,56 @@ def test_optimize_pareto_agent_vision_and_report_endpoints():
     assert "Sampurna AI — Data-Backed Impact Report" in rep.text
 
 
+def test_nebius_kimi_client_and_cost_cache(monkeypatch):
+    from types import SimpleNamespace
+    import openai
+
+    from backend.agent import llm_client
+
+    for var in ("AZURE_FOUNDRY_PROVIDER", "AI_PROVIDER", "GEMINI_API_KEY", "AZURE_OPENAI_API_KEY", "AZURE_FOUNDRY_API_KEY"):
+        monkeypatch.delenv(var, raising=False)
+    monkeypatch.setenv("NEBIUS_API_KEY", "test-nebius-key")
+    monkeypatch.setenv("NEBIUS_MODEL", "moonshotai/Kimi-K3.1-Pro")
+    llm_client.clear_llm_cache()
+
+    status = llm_client.get_foundry_status()
+    assert status.provider == "nebius"
+    assert status.configured
+    assert status.model == "moonshotai/Kimi-K3.1-Pro"
+    assert status.resource == "https://api.tokenfactory.nebius.com/v1/"
+
+    calls: list[dict] = []
+
+    class _FakeOpenAI:
+        def __init__(self, *, api_key, base_url, timeout, max_retries):
+            calls.append({"api_key": api_key, "base_url": base_url, "timeout": timeout, "max_retries": max_retries})
+            self.chat = SimpleNamespace(completions=SimpleNamespace(create=self._create))
+
+        def _create(self, **kwargs):
+            calls[-1]["create_kwargs"] = kwargs
+            return SimpleNamespace(
+                choices=[SimpleNamespace(message=SimpleNamespace(content='{"ok": true, "greeting_bn": "স্বাগতম"}'))]
+            )
+
+    monkeypatch.setattr(openai, "OpenAI", _FakeOpenAI)
+
+    parsed, model = llm_client.call_foundry_json("Return JSON", "Say hello", use_fast=True, max_tokens=400)
+    assert parsed == {"ok": True, "greeting_bn": "স্বাগতম"}
+    assert model == "moonshotai/Kimi-K3.1-Pro"
+    assert len(calls) == 1
+    ck = calls[0]["create_kwargs"]
+    assert ck["model"] == "moonshotai/Kimi-K3.1-Pro"
+    assert ck["reasoning_effort"] == "low"
+    assert ck["response_format"] == {"type": "json_object"}
+    assert ck["max_completion_tokens"] <= 1800
+
+    # Identical repeat call must hit in-memory cache with zero extra API calls
+    parsed2, _ = llm_client.call_foundry_json("Return JSON", "Say hello", use_fast=True, max_tokens=400)
+    assert parsed2 == parsed
+    assert len(calls) == 1
+    llm_client.clear_llm_cache()
+
+
 def test_gemini_hydrogen_client_and_cost_cache(monkeypatch):
     import urllib.request
 
