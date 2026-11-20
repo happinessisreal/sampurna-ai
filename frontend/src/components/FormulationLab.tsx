@@ -112,9 +112,9 @@ export function FormulationLab({
   const activeParetoId = selectedParetoId ?? pareto?.knee_point_id ?? null
 
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
       {/* Left Sidebar Controls (Figma Screen 01 Left Rail) */}
-      <aside className="rounded-2xl border border-[#DCE5DF] bg-white p-5 shadow-xs lg:col-span-4 xl:col-span-3">
+      <aside className="rounded-2xl border border-[#DCE5DF] bg-white p-5 shadow-xs md:col-span-4 xl:col-span-3">
         <div className="mb-4">
           <h2 className="text-lg font-bold text-[#0F231B]">{t.controls_title}</h2>
           <p className="text-xs text-[#6B8077]">{t.controls_sub}</p>
@@ -385,7 +385,7 @@ export function FormulationLab({
       </aside>
 
       {/* Right Analytics Canvas */}
-      <section className="space-y-5 lg:col-span-8 xl:col-span-9">
+      <section className="space-y-5 md:col-span-8 xl:col-span-9">
         {/* Infeasible Diagnostic Alert */}
         {result && !result.feasible && (
           <div className="rounded-2xl border border-[#C2410C] bg-[#FFEDD5] p-4 text-[#7C2D12]">
