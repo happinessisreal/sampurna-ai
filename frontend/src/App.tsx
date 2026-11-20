@@ -203,10 +203,10 @@ export function App() {
             <span className="hidden items-center gap-1.5 rounded-full bg-[#E3F4EC] px-3 py-1 text-[11px] font-semibold text-[#0B5D42] md:inline-flex">
               <span className="h-2 w-2 rounded-full bg-[#0B5D42]" />
               {health?.ai_foundry.configured
-                ? `Foundry · ${health.ai_foundry.model}`
+                ? `${health.ai_foundry.provider === 'gemini' ? 'Gemini' : 'Foundry'} · ${health.ai_foundry.model}`
                 : lang === 'bn'
-                  ? 'Foundry · Claude প্রস্তুত'
-                  : 'Foundry · Deterministic'}
+                  ? 'Gemini 4 · প্রস্তুত'
+                  : 'AI · Deterministic'}
             </span>
             <span className="font-mono-tech hidden rounded-full bg-[#E0F5F3] px-3 py-1 text-[11px] font-medium text-[#0D9488] sm:inline-block">
               MCP · {health?.mcp_tools ?? 5} Tools

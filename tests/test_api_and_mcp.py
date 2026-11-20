@@ -100,6 +100,83 @@ def test_optimize_pareto_agent_vision_and_report_endpoints():
     assert "Sampurna AI — Data-Backed Impact Report" in rep.text
 
 
+def test_gemini_hydrogen_client_and_cost_cache(monkeypatch):
+    import urllib.request
+
+    from backend.agent import llm_client
+
+    for var in ("AZURE_FOUNDRY_PROVIDER", "AI_PROVIDER", "AZURE_OPENAI_API_KEY", "AZURE_FOUNDRY_API_KEY"):
+        monkeypatch.delenv(var, raising=False)
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+    monkeypatch.setenv("GEMINI_MODEL", "gemini-4-hydrogen")
+    llm_client.clear_llm_cache()
+
+    status = llm_client.get_foundry_status()
+    assert status.provider == "gemini"
+    assert status.configured
+    assert status.model == "gemini-4-hydrogen"
+
+    calls: list[dict] = []
+
+    class _FakeResp:
+        def __init__(self, payload: dict):
+            self._raw = json.dumps(payload).encode("utf-8")
+
+        def read(self):
+            return self._raw
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+    def fake_urlopen(req, timeout=None):
+        calls.append(
+            {
+                "url": req.full_url,
+                "headers": {k.lower(): v for k, v in req.header_items()},
+                "body": json.loads(req.data.decode("utf-8")),
+                "timeout": timeout,
+            }
+        )
+        return _FakeResp(
+            {
+                "candidates": [
+                    {
+                        "content": {
+                            "parts": [
+                                {"text": "internal reasoning", "thought": True},
+                                {"text": '{"ok": true, "greeting_bn": "স্বাগতম"}'},
+                            ]
+                        }
+                    }
+                ]
+            }
+        )
+
+    monkeypatch.setattr(urllib.request, "urlopen", fake_urlopen)
+
+    parsed, model = llm_client.call_foundry_json("Return JSON", "Say hello", use_fast=True, max_tokens=300)
+    assert parsed == {"ok": True, "greeting_bn": "স্বাগতম"}
+    assert model == "gemini-4-hydrogen"
+    assert len(calls) == 1
+    call = calls[0]
+    assert "test-key" not in call["url"]
+    assert call["headers"]["x-goog-api-key"] == "test-key"
+    gen_cfg = call["body"]["generationConfig"]
+    assert gen_cfg["thinkingConfig"] == {"thinkingLevel": "LOW"}
+    assert gen_cfg["responseMimeType"] == "application/json"
+    assert "thinkingBudget" not in json.dumps(call["body"])
+    assert gen_cfg["maxOutputTokens"] <= 1800
+
+    # Identical second call must be served from the in-memory cache (no extra API cost)
+    parsed2, _ = llm_client.call_foundry_json("Return JSON", "Say hello", use_fast=True, max_tokens=300)
+    assert parsed2 == parsed
+    assert len(calls) == 1
+    llm_client.clear_llm_cache()
+
+
 def test_fastmcp_tools_execute_end_to_end():
     res = mcp_optimize(mode="cheapest", excluded_allergens=["peanut"])
     assert res["feasible"]

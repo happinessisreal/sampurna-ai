@@ -28,11 +28,11 @@
   4. *Dhaka Open Retail & TCB Subsidized Price Lists (Nov 2026)* — yield-adjusted local BDT/kg ingredient costs (transparently flagging unverified dry/LCA proxies with `verified=false`).
   5. *NCBI PubChem PUG-REST* & *10 Open-Access Peer-Reviewed PMC/FAO/Science Papers* — verified molecular CIDs and open-access literature for RAG.
 - **Personal Data Handling:** Zero personal or PII data collected or used anywhere in the platform.
-- **Foundation Models Called:** Hosted via **Azure AI Foundry** (`claude-sonnet-5-5` for 4-Agent molecular/bilingual synthesis & multimodal prototype vision; `claude-haiku-5-5` for fast constraint parsing; plus deterministic SciPy HiGHS LP + TF-IDF RAG fallbacks).
+- **Foundation Models Called:** **Google Gemini 4 Hydrogen** (`gemini-4-hydrogen`, `thinkingLevel=LOW`, bounded in-memory response cache for cost control) for 4-Agent Bangla constraint parsing, molecular/bilingual synthesis & multimodal prototype Vision; deterministic SciPy HiGHS LP + TF-IDF RAG fallbacks; app hosted on **Azure Container Apps**.
 
 ## Section 6: Tooling & IDE Disclosure
 - **IDE & AI Coding Assistant:** Antigravity Agentic IDE (with Gemini models for planning, Figma MCP orchestration, backend/frontend engineering, and automated test verification).
-- **Frameworks & Scientific Stack:** Python 3.12 (`uv`), FastAPI, SciPy (`linprog` HiGHS), NumPy, Pandas, scikit-learn (TF-IDF), `mcp` (`MCPServer`), Anthropic Azure Foundry SDK, React 19, Vite, TypeScript, Tailwind CSS v4, Recharts, Docker, Azure Container Apps.
+- **Frameworks & Scientific Stack:** Python 3.12 (`uv`), FastAPI, SciPy (`linprog` HiGHS), NumPy, Pandas, scikit-learn (TF-IDF), `mcp` (`MCPServer`), Google Gemini API (REST), React 19, Vite, TypeScript, Tailwind CSS v4, Recharts, Docker, Azure Container Apps.
 - **Typography Localization:** Official Bangladesh ICT Division / BCC `July` & `Purno` fonts (`bangla.gov.bd/purno`) bundled locally for native Bangla rendering.
 
 ## Section 7: MCP Usage Disclosure

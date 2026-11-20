@@ -18,7 +18,7 @@ from backend.agent.prompts import (
 from backend.agent.rag import RagHit, search_literature
 from backend.core.baselines import BaselineComparisonItem, compare_to_baselines
 from backend.core.chemistry import SensoryAnalysis, analyze_molecular_sensory
-from backend.core.data import PriceTier, ScoringStandard
+from backend.core.data import PriceTier, ScoringStandard, load_ingredients
 from backend.core.optimizer import OptimizeRequest, optimize_blend
 from backend.core.scoring import BlendScore
 
@@ -267,8 +267,112 @@ def _audit_generated_text(culinary: dict[str, Any], score: BlendScore) -> tuple[
     return passed, notes_en, notes_bn
 
 
+_VALID_MODES = {"cheapest", "greenest", "most_complete", "balanced", "meat_analogue"}
+_VALID_TIERS = {"open_market", "tcb_subsidized"}
+_VALID_ALLERGENS = {"soy", "gluten", "peanut", "sesame"}
+
+
+def _sanitize_llm_spec(
+    raw: dict[str, Any] | None,
+    rule_spec: dict[str, Any],
+) -> dict[str, Any]:
+    spec = dict(rule_spec)
+    if not isinstance(raw, dict):
+        return spec
+
+    mode = raw.get("mode")
+    if isinstance(mode, str) and mode.strip() in _VALID_MODES:
+        spec["mode"] = mode.strip()
+
+    tier = raw.get("price_tier")
+    if isinstance(tier, str) and tier.strip() in _VALID_TIERS:
+        spec["price_tier"] = tier.strip()
+
+    if "max_budget_bdt" in raw:
+        budget = raw.get("max_budget_bdt")
+        if budget is None:
+            spec["max_budget_bdt"] = None
+        elif isinstance(budget, (int, float)) and not isinstance(budget, bool) and float(budget) > 0:
+            spec["max_budget_bdt"] = float(budget)
+
+    min_score = raw.get("min_score")
+    if isinstance(min_score, (int, float)) and not isinstance(min_score, bool):
+        spec["min_score"] = min(1.10, max(0.85, float(min_score)))
+
+    excluded = raw.get("excluded_allergens")
+    if isinstance(excluded, list):
+        spec["excluded_allergens"] = [
+            str(a).strip().lower()
+            for a in excluded
+            if isinstance(a, str) and a.strip().lower() in _VALID_ALLERGENS
+        ]
+
+    ing_map = load_ingredients()
+    excl_set = set(spec.get("excluded_allergens", []))
+    include_ids = raw.get("include_ids")
+    if isinstance(include_ids, list):
+        cleaned_ids: list[str] = []
+        for item in include_ids:
+            if not isinstance(item, str):
+                continue
+            iid = item.strip()
+            ing = ing_map.get(iid)
+            if ing is not None and not ing.is_baseline and not (set(ing.allergens) & excl_set):
+                if iid not in cleaned_ids:
+                    cleaned_ids.append(iid)
+        spec["include_ids"] = cleaned_ids
+
+    for key in (
+        "product_name_en",
+        "product_name_bn",
+        "product_format_en",
+        "product_format_bn",
+        "target_customer_en",
+        "target_customer_bn",
+        "rag_query",
+    ):
+        val = raw.get(key)
+        if isinstance(val, str) and val.strip():
+            spec[key] = val.strip()
+
+    return spec
+
+
+def _sanitize_culinary_package(
+    raw: dict[str, Any] | None,
+    fallback: dict[str, Any],
+) -> dict[str, Any]:
+    out = dict(fallback)
+    if not isinstance(raw, dict):
+        return out
+
+    for key in (
+        "molecular_summary_en",
+        "molecular_summary_bn",
+        "industrial_process_en",
+        "industrial_process_bn",
+    ):
+        val = raw.get(key)
+        if isinstance(val, str) and val.strip():
+            out[key] = val.strip()
+
+    for key in (
+        "recipe_steps_en",
+        "recipe_steps_bn",
+        "hypotheses_to_test_en",
+        "hypotheses_to_test_bn",
+    ):
+        val = raw.get(key)
+        if isinstance(val, list):
+            cleaned = [str(item).strip() for item in val if item is not None and str(item).strip()]
+            if cleaned:
+                out[key] = cleaned
+
+    return out
+
+
 def run_four_agent_formulation(req: FormulateAgentRequest) -> FormulateAgentResponse:
-    """Execute the 4-Agent Collaborative R&D Pipeline with Azure AI Foundry + deterministic fallback."""
+    """Execute the 4-Agent Collaborative R&D Pipeline with Gemini 4 Hydrogen + deterministic fallback."""
     status = get_foundry_status()
     trace: list[AgentStepTrace] = []
 
@@ -281,7 +385,7 @@ def run_four_agent_formulation(req: FormulateAgentRequest) -> FormulateAgentResp
         use_fast=True,
         max_tokens=700,
     )
-    spec = {**rule_spec, **(llm_spec or {})}
+    spec = _sanitize_llm_spec(llm_spec, rule_spec)
 
     opt_req = OptimizeRequest(
         mode=spec.get("mode", "meat_analogue"),
@@ -366,7 +470,7 @@ def run_four_agent_formulation(req: FormulateAgentRequest) -> FormulateAgentResp
         use_fast=False,
         max_tokens=1800,
     )
-    culinary = {**det_culinary, **(llm_culinary or {})}
+    culinary = _sanitize_culinary_package(llm_culinary, det_culinary)
     t3_ms = max(1, int((time.perf_counter() - t0) * 1000))
     trace.append(
         AgentStepTrace(
@@ -445,21 +549,32 @@ def inspect_prototype_image(
             max_tokens=900,
         )
         if parsed:
+            def _bounded_score(val: Any, default: int) -> int:
+                try:
+                    return max(0, min(100, int(round(float(val)))))
+                except (TypeError, ValueError):
+                    return default
+
+            def _str_list(val: Any) -> list[str]:
+                if not isinstance(val, list):
+                    return []
+                return [str(x).strip() for x in val if x is not None and str(x).strip()]
+
             return VisionInspectResponse(
                 model_used=used_model,
-                maillard_browning_score=int(parsed.get("maillard_browning_score", 78)),
-                fibrous_grain_score=int(parsed.get("fibrous_grain_score", 80)),
-                moisture_appearance=str(parsed.get("moisture_appearance", "balanced")),
-                visual_assessment_en=str(parsed.get("visual_assessment_en", "")),
-                visual_assessment_bn=str(parsed.get("visual_assessment_bn", "")),
-                formulation_adjustments_en=list(parsed.get("formulation_adjustments_en", [])),
-                formulation_adjustments_bn=list(parsed.get("formulation_adjustments_bn", [])),
+                maillard_browning_score=_bounded_score(parsed.get("maillard_browning_score"), 78),
+                fibrous_grain_score=_bounded_score(parsed.get("fibrous_grain_score"), 80),
+                moisture_appearance=str(parsed.get("moisture_appearance", "balanced") or "balanced"),
+                visual_assessment_en=str(parsed.get("visual_assessment_en", "") or ""),
+                visual_assessment_bn=str(parsed.get("visual_assessment_bn", "") or ""),
+                formulation_adjustments_en=_str_list(parsed.get("formulation_adjustments_en")),
+                formulation_adjustments_bn=_str_list(parsed.get("formulation_adjustments_bn")),
             )
 
     # Built-in sample prototype / offline deterministic preview
     samples = {
         "keema_prototype": VisionInspectResponse(
-            model_used="Foundry Claude Vision (Sample Reference Preview)",
+            model_used="Gemini 4 Hydrogen Vision (Sample Reference Preview)",
             maillard_browning_score=82,
             fibrous_grain_score=85,
             moisture_appearance="balanced",
@@ -475,7 +590,7 @@ def inspect_prototype_image(
             ],
         ),
         "khichuri_prototype": VisionInspectResponse(
-            model_used="Foundry Claude Vision (Sample Reference Preview)",
+            model_used="Gemini 4 Hydrogen Vision (Sample Reference Preview)",
             maillard_browning_score=74,
             fibrous_grain_score=68,
             moisture_appearance="balanced",

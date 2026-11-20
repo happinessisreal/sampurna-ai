@@ -14,7 +14,7 @@ Bangladesh faces both protein unaffordability (edible broiler chicken costs `৳
 ## 3. AI-Native System Architecture
 1. **3D Pareto & SciPy HiGHS LP Optimizer (`backend/core/optimizer.py`):** Optimizes across 14 locally available ingredients and 9 indispensable amino acids (`FAO 2013 DIAAS` & `WHO 2007 PDCAAS`), generating 15–20 non-dominated Cost × Carbon × Quality blends with allergen and TCB-subsidized pricing controls.
 2. **PubChem Molecular Flavor-Bridge Engine (`backend/core/chemistry.py`):** Maps volatile off-notes (*Hexanal* CID `6184`) against fungal umami (*L-Glutamic Acid* CID `33032` + *5'-GMP* CID `135398631`) and Maillard precursors (*L-Cysteine* CID `5862` + *D-Xylose* CID `135191`).
-3. **4-Agent Collaborative R&D Copilot (`backend/agent/orchestrator.py`):** Powered by **Azure AI Foundry (Anthropic Claude Sonnet/Haiku 5.5)** with automatic deterministic fallback:
+3. **4-Agent Collaborative R&D Copilot (`backend/agent/orchestrator.py`):** Powered by **Google Gemini 4 Hydrogen** (`gemini-4-hydrogen`, `thinkingLevel=LOW` + response cache) with automatic deterministic fallback:
    - *Agent 1 (Formulation Strategist)* parses Bangla/EN briefs into LP constraints.
    - *Agent 2 (Molecular Chemist)* combines PubChem chemistry with TF-IDF RAG over **10 real open-access PMC/FAO/Science papers**.
    - *Agent 3 (Bilingual Culinary & Process Engineer)* outputs exact gram-locked EN/BN recipes + 1,000 kg batch processing flows.
