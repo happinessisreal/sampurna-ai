@@ -1,0 +1,225 @@
+{
+  "compounds": {
+    "hexanal": {
+      "cid": 6184,
+      "name": "Hexanal",
+      "name_bn": "হেক্সানাল",
+      "formula": "C6H12O",
+      "mw": 100.16,
+      "role": "beany_off_note",
+      "sensory_note": "Grassy, green-beany lipid oxidation aldehyde from LOX enzyme in legumes/soy",
+      "sensory_note_bn": "সয়া ও ডালের লাইপোক্সিজেনেস এনজাইম থেকে উৎপন্ন কাঁচা ডাল-গন্ধ",
+      "mitigation": "85°C blanching/steaming (LOX inactivation) + dry roasting + mushroom umami masking"
+    },
+    "2_pentylfuran": {
+      "cid": 19602,
+      "name": "2-Pentylfuran",
+      "name_bn": "২-পেন্টাইলফিউরান",
+      "formula": "C9H14O",
+      "mw": 138.21,
+      "role": "beany_off_note",
+      "sensory_note": "Beany, metallic off-odor formed from linoleic acid oxidation",
+      "sensory_note_bn": "লিনোলিক অ্যাসিড জারণ থেকে সৃষ্ট ধাতব ও ডালজাতীয় গন্ধ",
+      "mitigation": "Thermal pre-treatment + aromatic South Asian spice matrix (cumin/garlic/ginger)"
+    },
+    "1_hexanol": {
+      "cid": 8103,
+      "name": "1-Hexanol",
+      "name_bn": "১-হেক্সানল",
+      "formula": "C6H14O",
+      "mw": 102.17,
+      "role": "beany_off_note",
+      "sensory_note": "Green herbaceous alcohol contributing to raw pulse aroma",
+      "sensory_note_bn": "কাঁচা শস্য ও ডালের সবুজাভ গন্ধ",
+      "mitigation": "Pan-roasting or low-moisture extrusion volatilization"
+    },
+    "l_glutamic_acid": {
+      "cid": 33032,
+      "name": "L-Glutamic Acid",
+      "name_bn": "এল-গ্লুটামিক অ্যাসিড",
+      "formula": "C5H9NO4",
+      "mw": 147.13,
+      "role": "umami_enhancer",
+      "sensory_note": "Core savory umami amino acid that suppresses perceived bitterness & beany notes",
+      "sensory_note_bn": "মূল উমামি অ্যামিনো অ্যাসিড যা তিক্ততা ও ডালের গন্ধ ঢাকে",
+      "mitigation": "Synergizes exponentially (up to 8x) with 5'-GMP ribonucleotides"
+    },
+    "gmp": {
+      "cid": 135398631,
+      "name": "Guanosine 5'-Monophosphate (5'-GMP)",
+      "name_bn": "৫'-জিএমপি (উমামি নিউক্লিওটাইড)",
+      "formula": "C10H14N5O8P",
+      "mw": 363.22,
+      "role": "umami_enhancer",
+      "sensory_note": "Fungal umami ribonucleotide abundant in Pleurotus oyster mushrooms",
+      "sensory_note_bn": "অয়েস্টার মাশরুমে প্রাকৃতিকভাবে থাকা মাংসল উমামি নিউক্লিওটাইড",
+      "mitigation": "Retained best by gentle hot-air/solar drying + simmering"
+    },
+    "1_octen_3_ol": {
+      "cid": 18827,
+      "name": "1-Octen-3-ol",
+      "name_bn": "১-অকটেন-৩-অল",
+      "formula": "C8H16O",
+      "mw": 128.21,
+      "role": "earthy_savory",
+      "sensory_note": "Signature earthy, savory mushroom alcohol providing meaty depth",
+      "sensory_note_bn": "মাশরুমের মাটি-ঘেঁষা গভীর ও সুস্বাদু ঘ্রাণ",
+      "mitigation": "Combines with sulfur volatiles for authentic cooked meat aroma"
+    },
+    "l_cysteine": {
+      "cid": 5862,
+      "name": "L-(+)-Cysteine",
+      "name_bn": "এল-সিস্টেইন",
+      "formula": "C3H7NO2S",
+      "mw": 121.16,
+      "role": "maillard_precursor",
+      "sensory_note": "Sulfur-containing amino acid key for meaty Maillard flavor generation on heating",
+      "sensory_note_bn": "তাপে মাংস-সদৃশ মেইলার্ড ঘ্রাণ তৈরির প্রধান সালফার অ্যামিনো অ্যাসিড",
+      "mitigation": "Reacted with reducing sugars (xylose/glucose) above 130°C"
+    },
+    "d_xylose": {
+      "cid": 135191,
+      "name": "D-Xylose",
+      "name_bn": "ডি-জাইলোজ",
+      "formula": "C5H10O5",
+      "mw": 150.13,
+      "role": "maillard_precursor",
+      "sensory_note": "Pentose reducing sugar reacting rapidly with L-cysteine to create savory browning",
+      "sensory_note_bn": "সিস্টেইনের সাথে দ্রুত বিক্রিয়া করে মাংসল ব্রাউনিং ও ঘ্রাণ তৈরি করে",
+      "mitigation": "Moderate pan sear 140–165°C avoids charring"
+    },
+    "2_methyl_3_furanthiol": {
+      "cid": 34286,
+      "name": "2-Methyl-3-furanthiol",
+      "name_bn": "২-মিথাইল-৩-ফিউরানথিওল",
+      "formula": "C5H6OS",
+      "mw": 114.17,
+      "role": "meaty_aroma",
+      "sensory_note": "Key cooked beef/poultry aroma molecule formed from cysteine + pentose Maillard pathway",
+      "sensory_note_bn": "সিস্টেইন ও শর্করার মেইলার্ড বিক্রিয়ায় তৈরি আসল রান্না করা মাংসের ঘ্রাণ",
+      "mitigation": "Boosted by combining sesame/cereal cysteine with mushroom/onion browning"
+    },
+    "methional": {
+      "cid": 18635,
+      "name": "Methional",
+      "name_bn": "মিথিওনাল",
+      "formula": "C4H8OS",
+      "mw": 104.17,
+      "role": "meaty_aroma",
+      "sensory_note": "Strecker aldehyde from methionine imparting savory broth & roasted notes",
+      "sensory_note_bn": "রোস্ট ও মাংসের ঝোলের মতো ঘ্রাণ সৃষ্টিকারী স্ট্রেকার অ্যালডিহাইড",
+      "mitigation": "Generated naturally during high-heat sautéing of cereal-sesame blends"
+    },
+    "2_acetyl_1_pyrroline": {
+      "cid": 522834,
+      "name": "2-Acetyl-1-pyrroline",
+      "name_bn": "২-অ্যাসিটাইল-১-পাইরোলিন",
+      "formula": "C6H9NO",
+      "mw": 111.14,
+      "role": "earthy_savory",
+      "sensory_note": "Signature roasted grain/basmati-like nutty aroma masking pulse chalkiness",
+      "sensory_note_bn": "ভাজা চালের বাদামি-মিষ্টি ঘ্রাণ যা ডালের কষা ভাব কমায়",
+      "mitigation": "Enhanced by dry toasting rice/wheat component before mixing"
+    }
+  },
+  "ingredient_profiles": {
+    "red_lentil": {
+      "compounds": ["hexanal", "1_hexanol", "l_glutamic_acid"],
+      "beany_load": 0.72,
+      "umami_load": 0.25,
+      "maillard_potential": 0.35,
+      "functional": { "water_holding": 0.64, "emulsification": 0.58, "gelation": 0.62, "fibrous_anisotropy": 0.25 }
+    },
+    "chickpea": {
+      "compounds": ["hexanal", "2_pentylfuran", "l_glutamic_acid"],
+      "beany_load": 0.55,
+      "umami_load": 0.34,
+      "maillard_potential": 0.48,
+      "functional": { "water_holding": 0.72, "emulsification": 0.78, "gelation": 0.75, "fibrous_anisotropy": 0.30 }
+    },
+    "mung_bean": {
+      "compounds": ["hexanal", "1_hexanol", "l_glutamic_acid"],
+      "beany_load": 0.48,
+      "umami_load": 0.32,
+      "maillard_potential": 0.42,
+      "functional": { "water_holding": 0.70, "emulsification": 0.68, "gelation": 0.80, "fibrous_anisotropy": 0.35 }
+    },
+    "black_gram": {
+      "compounds": ["hexanal", "l_glutamic_acid", "l_cysteine"],
+      "beany_load": 0.58,
+      "umami_load": 0.36,
+      "maillard_potential": 0.52,
+      "functional": { "water_holding": 0.76, "emulsification": 0.74, "gelation": 0.86, "fibrous_anisotropy": 0.32 }
+    },
+    "soybean_dry": {
+      "compounds": ["hexanal", "2_pentylfuran", "1_hexanol", "l_glutamic_acid"],
+      "beany_load": 0.92,
+      "umami_load": 0.48,
+      "maillard_potential": 0.60,
+      "functional": { "water_holding": 0.82, "emulsification": 0.88, "gelation": 0.84, "fibrous_anisotropy": 0.55 }
+    },
+    "soy_tvp": {
+      "compounds": ["hexanal", "2_pentylfuran", "l_glutamic_acid", "methional"],
+      "beany_load": 0.54,
+      "umami_load": 0.52,
+      "maillard_potential": 0.68,
+      "functional": { "water_holding": 0.92, "emulsification": 0.72, "gelation": 0.76, "fibrous_anisotropy": 0.92 }
+    },
+    "white_rice": {
+      "compounds": ["2_acetyl_1_pyrroline", "methional", "l_cysteine"],
+      "beany_load": 0.05,
+      "umami_load": 0.14,
+      "maillard_potential": 0.56,
+      "functional": { "water_holding": 0.68, "emulsification": 0.30, "gelation": 0.74, "fibrous_anisotropy": 0.18 }
+    },
+    "wheat_atta": {
+      "compounds": ["2_acetyl_1_pyrroline", "l_cysteine", "l_glutamic_acid"],
+      "beany_load": 0.08,
+      "umami_load": 0.28,
+      "maillard_potential": 0.64,
+      "functional": { "water_holding": 0.75, "emulsification": 0.62, "gelation": 0.85, "fibrous_anisotropy": 0.74 }
+    },
+    "peanut": {
+      "compounds": ["2_pentylfuran", "l_glutamic_acid", "methional"],
+      "beany_load": 0.25,
+      "umami_load": 0.45,
+      "maillard_potential": 0.72,
+      "functional": { "water_holding": 0.48, "emulsification": 0.78, "gelation": 0.52, "fibrous_anisotropy": 0.22 }
+    },
+    "sesame_seed": {
+      "compounds": ["l_cysteine", "methional", "2_methyl_3_furanthiol"],
+      "beany_load": 0.06,
+      "umami_load": 0.40,
+      "maillard_potential": 0.88,
+      "functional": { "water_holding": 0.42, "emulsification": 0.72, "gelation": 0.45, "fibrous_anisotropy": 0.20 }
+    },
+    "oyster_mushroom": {
+      "compounds": ["l_glutamic_acid", "gmp", "1_octen_3_ol", "d_xylose"],
+      "beany_load": 0.0,
+      "umami_load": 0.96,
+      "maillard_potential": 0.85,
+      "functional": { "water_holding": 0.86, "emulsification": 0.52, "gelation": 0.58, "fibrous_anisotropy": 0.78 }
+    },
+    "green_jackfruit": {
+      "compounds": ["d_xylose", "1_octen_3_ol"],
+      "beany_load": 0.0,
+      "umami_load": 0.22,
+      "maillard_potential": 0.62,
+      "functional": { "water_holding": 0.88, "emulsification": 0.35, "gelation": 0.40, "fibrous_anisotropy": 0.95 }
+    },
+    "jackfruit_seed": {
+      "compounds": ["d_xylose", "l_glutamic_acid"],
+      "beany_load": 0.14,
+      "umami_load": 0.20,
+      "maillard_potential": 0.46,
+      "functional": { "water_holding": 0.80, "emulsification": 0.54, "gelation": 0.78, "fibrous_anisotropy": 0.38 }
+    },
+    "moringa_leaf": {
+      "compounds": ["1_hexanol", "l_glutamic_acid"],
+      "beany_load": 0.38,
+      "umami_load": 0.26,
+      "maillard_potential": 0.30,
+      "functional": { "water_holding": 0.60, "emulsification": 0.32, "gelation": 0.35, "fibrous_anisotropy": 0.22 }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+uv.lock.tmp
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS & Logs
+.DS_Store
+*.log
+/tmp/

@@ -1,0 +1,3 @@
+pattern_id,name,name_bn,his,ile,leu,lys,met_cys,phe_tyr,thr,trp,val,citation
+fao_2013_diaas,FAO (2013) DIAAS Adult Scoring Pattern,FAO (২০১৩) DIAAS প্রাপ্তবয়স্ক মানদণ্ড,16.0,30.0,61.0,48.0,23.0,41.0,25.0,6.6,40.0,"FAO Food and Nutrition Paper 92 (2013), Dietary protein quality evaluation in human nutrition, Table 5 (Older child, adolescent, adult)"
+who_2007_pdcaas,WHO/FAO/UNU (2007) PDCAAS Adult Scoring Pattern,WHO/FAO (২০০৭) PDCAAS প্রাপ্তবয়স্ক মানদণ্ড,15.0,30.0,59.0,45.0,22.0,38.0,23.0,6.0,39.0,"WHO Technical Report Series 935 (2007), Protein and amino acid requirements in human nutrition, Adult pattern"
