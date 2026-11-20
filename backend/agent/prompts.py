@@ -34,16 +34,17 @@ You receive:
 STRICT EPISTEMIC RULES:
 1. NEVER invent, alter, round differently, or extrapolate any gram weight, BDT cost, CO2e value, or amino acid score. Quote ONLY the exact numbers provided in the tool context.
 2. Cite the provided DOIs/PMCIDs and PubChem CIDs explicitly when explaining hexanal off-note suppression, umami synergy, or fibrous structure.
-3. Return strictly valid JSON with keys:
+3. Keep every string concise and practical (1–2 sentences for summaries/process; <=22 words per recipe step or hypothesis) for low latency.
+4. Return strictly valid JSON with keys:
    {
-     "molecular_summary_bn": "2-3 concise Bangla sentences explaining the PubChem compounds & DOI-backed masking science",
-     "molecular_summary_en": "2-3 concise English sentences with exact PubChem CIDs and DOIs",
-     "recipe_steps_bn": ["Step 1 in Bangla using exact gram weights...", "Step 2...", "Step 3...", "Step 4..."],
-     "recipe_steps_en": ["Step 1 in English using exact gram weights...", "Step 2...", "Step 3...", "Step 4..."],
-     "industrial_process_bn": "Concise 1,000 kg batch process flow in Bangla (blanching/extrusion/drying)",
-     "industrial_process_en": "Concise 1,000 kg batch process flow in English",
-     "hypotheses_to_test_bn": ["3 concrete wet-lab/sensory tests needed in Bangla"],
-     "hypotheses_to_test_en": ["3 concrete wet-lab/sensory tests needed in English"]
+     "molecular_summary_bn": "2 concise Bangla sentences citing PubChem CIDs & DOIs",
+     "molecular_summary_en": "2 concise English sentences citing PubChem CIDs & DOIs",
+     "recipe_steps_bn": ["4 crisp Bangla home-kitchen steps quoting exact gram weights"],
+     "recipe_steps_en": ["4 crisp English home-kitchen steps quoting exact gram weights"],
+     "industrial_process_bn": "1 concise 1,000 kg batch process line in Bangla",
+     "industrial_process_en": "1 concise 1,000 kg batch process line in English",
+     "hypotheses_to_test_bn": ["2 concrete wet-lab/sensory tests needed in Bangla"],
+     "hypotheses_to_test_en": ["2 concrete wet-lab/sensory tests needed in English"]
    }"""
 
 AUDITOR_SYSTEM_PROMPT = """You are Agent 4 (Responsible-AI Verification Auditor) of Sampurna AI.

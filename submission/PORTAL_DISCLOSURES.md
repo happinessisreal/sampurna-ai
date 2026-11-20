@@ -28,7 +28,7 @@
   4. *Dhaka Open Retail & TCB Subsidized Price Lists (Nov 2026)* — yield-adjusted local BDT/kg ingredient costs (transparently flagging unverified dry/LCA proxies with `verified=false`).
   5. *NCBI PubChem PUG-REST* & *10 Open-Access Peer-Reviewed PMC/FAO/Science Papers* — verified molecular CIDs and open-access literature for RAG.
 - **Personal Data Handling:** Zero personal or PII data collected or used anywhere in the platform.
-- **Foundation Models Called:** **Nebius Token Factory (`moonshotai/Kimi-K3.1-Pro`)** (`reasoning_effort=low`, bounded in-memory response cache for cost control) for 4-Agent Bangla constraint parsing, molecular/bilingual synthesis & multimodal prototype Vision; deterministic SciPy HiGHS LP + TF-IDF RAG fallbacks; app hosted on **Azure Container Apps**.
+- **Foundation Models Called:** **Nebius Token Factory (`moonshotai/Kimi-K3.1-Pro`)** (`reasoning_effort=none`, bounded in-memory response cache for cost control) for 4-Agent Bangla constraint parsing, molecular/bilingual synthesis & multimodal prototype Vision; deterministic SciPy HiGHS LP + TF-IDF RAG fallbacks; app hosted on **Azure Container Apps**.
 
 ## Section 6: Tooling & IDE Disclosure
 - **IDE & AI Coding Assistant:** Antigravity Agentic IDE (with Gemini models for planning, Figma MCP orchestration, backend/frontend engineering, and automated test verification).

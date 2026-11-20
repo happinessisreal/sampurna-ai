@@ -206,7 +206,7 @@ def _call_nebius_json(
 ) -> tuple[dict[str, Any] | None, str]:
     from openai import BadRequestError, OpenAI
 
-    effort = os.getenv("NEBIUS_REASONING_EFFORT", "low").strip().lower()
+    effort = os.getenv("NEBIUS_REASONING_EFFORT", "none").strip().lower()
     cache_key: tuple[str, ...] | None = None
     if image_bytes is None:
         cache_key = (status.provider, target_model, effort, system_prompt, user_prompt)
@@ -218,8 +218,8 @@ def _call_nebius_json(
     client = OpenAI(
         api_key=os.getenv("NEBIUS_API_KEY", "").strip(),
         base_url=status.resource or "https://api.tokenfactory.nebius.com/v1/",
-        timeout=60.0,
-        max_retries=2,
+        timeout=120.0,
+        max_retries=0,
     )
     messages = _build_openai_messages(system_prompt, user_prompt, image_bytes, image_mime)
     kwargs: dict[str, Any] = {

@@ -139,7 +139,9 @@ def test_nebius_kimi_client_and_cost_cache(monkeypatch):
     assert len(calls) == 1
     ck = calls[0]["create_kwargs"]
     assert ck["model"] == "moonshotai/Kimi-K3.1-Pro"
-    assert ck["reasoning_effort"] == "low"
+    assert ck["reasoning_effort"] == "none"
+    assert calls[0]["timeout"] == 120.0
+    assert calls[0]["max_retries"] == 0
     assert ck["response_format"] == {"type": "json_object"}
     assert ck["max_completion_tokens"] <= 1800
 
