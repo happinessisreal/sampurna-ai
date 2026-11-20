@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* Official Bangladesh ICT Division / BCC "July" & "Purno" Typefaces */
+@font-face {
+  font-family: "July";
+  src: url("/fonts/July-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "July";
+  src: url("/fonts/July-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "July";
+  src: url("/fonts/July-Bold.ttf") format("truetype");
+  font-weight: 600 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Purno";
+  src: url("/fonts/Purno-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Purno";
+  src: url("/fonts/Purno-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg-canvas: #F5F7F5;
+  --bg-surface: #FFFFFF;
+  --bg-surface-alt: #EEF3EF;
+  --bg-dark-lab: #0D1F18;
+  --brand-emerald: #0B5D42;
+  --brand-emerald-soft: #E3F4EC;
+  --brand-teal: #0D9488;
+  --brand-teal-soft: #E0F5F3;
+  --accent-amber: #B45309;
+  --accent-amber-soft: #FEF3C7;
+  --accent-terracotta: #C2410C;
+  --text-primary: #0F231B;
+  --text-secondary: #3D554B;
+  --text-muted: #6B8077;
+  --border-subtle: #DCE5DF;
+}
+
+body {
+  font-family: "July", "Purno", system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+}
+
+.font-mono-tech {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@media print {
+  header,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+  }
+}
