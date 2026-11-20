@@ -1,7 +1,7 @@
 [project]
 name = "sampurna-ai"
 version = "0.1.0"
-description = "Sampurna AI — Molecular, Nutritional & Sustainability Formulation Platform for Alternative Proteins (FoodSphere AI)"
+description = "Sampurna AI — Molecular, Nutritional & Sustainability Formulation Platform for Alternative Proteins"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

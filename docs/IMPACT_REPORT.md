@@ -1,7 +1,7 @@
 # Sampurna AI — Data-Backed Impact Report: Dhaka Sampurna Plant-Protein Keema
 
-> **Challenge:** FoodSphere AI — *Future Foods* (International AI Builders Congress 2026)  
-> **Generated:** 2026-11-20 11:13 UTC | **Scoring Standard:** `FAO (2013) DIAAS-Proxy` | **Price Tier:** `open_market`  
+> **Platform:** Sampurna AI — Molecular & Sustainable Plant-Protein Formulation  
+> **Generated:** 2026-11-20 14:04 UTC | **Scoring Standard:** `FAO (2013) DIAAS-Proxy` | **Price Tier:** `open_market`  
 > **Epistemic Integrity Contract:** All quantitative nutrition, cost, carbon, and unit-economic figures below are **VERIFIED COMPUTED** deterministically over cited datasets (`core/scoring.py`, `core/optimizer.py`). Sensory compatibility indices are **MODEL ESTIMATED** via PubChem compound profiles; culinary execution and shelf-life are **AI HYPOTHESES** awaiting wet-lab validation.
 
 ## 1. Executive Summary (`VERIFIED COMPUTED`)

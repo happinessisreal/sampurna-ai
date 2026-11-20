@@ -159,19 +159,7 @@ export function App() {
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-8">
           {/* Botanical Molecule Logo */}
           <div className="flex items-center gap-2.5">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <rect width="36" height="36" rx="10" fill="#0B5D42" />
-              <circle cx="18" cy="11" r="3" fill="#5EEAD4" />
-              <circle cx="11" cy="23" r="3" fill="#A7F3D0" />
-              <circle cx="25" cy="23" r="3" fill="#A7F3D0" />
-              <path
-                d="M18 14V18M18 18L13.5 21.5M18 18L22.5 21.5"
-                stroke="#FFFFFF"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <circle cx="18" cy="18" r="2.2" fill="#FFFFFF" />
-            </svg>
+            <img src="/logo.svg" alt="Sampurna AI" className="h-9 w-9 rounded-[10px]" />
             <div>
               <div className="text-lg font-bold leading-tight text-[#0F231B]">{t.brand}</div>
               <div className="font-mono-tech text-[10px] font-medium text-[#0D9488]">

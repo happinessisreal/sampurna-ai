@@ -34,9 +34,9 @@ from backend.core.scoring import score_blend
 from backend.mcp_server import get_mcp_manifest
 
 app = FastAPI(
-    title="Sampurna AI — FoodSphere Future Foods API",
+    title="Sampurna AI — Plant-Protein Formulation API",
     version="0.1.0",
-    description="Deterministic LP/Pareto protein formulation, PubChem sensory chemistry, Azure AI Foundry 4-Agent Copilot, and FastMCP server.",
+    description="Deterministic LP/Pareto protein formulation, PubChem sensory chemistry, 4-Agent R&D Copilot, and FastMCP server.",
 )
 
 cors_origins = os.getenv("CORS_ORIGINS", "*").split(",")
@@ -152,7 +152,7 @@ def health() -> dict[str, Any]:
     return {
         "status": "ok",
         "app": "Sampurna AI",
-        "challenge": "FoodSphere AI -> Future Foods",
+        "challenge": "Alternative Protein Formulation",
         "ai_foundry": {
             "provider": foundry.provider,
             "configured": foundry.configured,

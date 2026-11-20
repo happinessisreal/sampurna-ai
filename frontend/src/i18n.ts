@@ -54,7 +54,7 @@ export const ALLERGEN_OPTIONS: Array<{ id: string; bn: string; en: string }> = [
 export const COPY: Record<Lang, Record<string, string>> = {
   bn: {
     brand: 'সম্পূর্ণা AI',
-    subbrand: 'FoodSphere AI · Future Foods',
+    subbrand: 'মলিকুলার ও পুষ্টি ফর্মুলেশন প্ল্যাটফর্ম',
     tab_formulation: 'ফর্মুলেশন ল্যাব',
     tab_molecular: 'অণু ও স্বাদ',
     tab_agents: '৪-এজেন্ট ল্যাব',
@@ -114,7 +114,7 @@ export const COPY: Record<Lang, Record<string, string>> = {
   },
   en: {
     brand: 'Sampurna AI',
-    subbrand: 'FoodSphere AI · Future Foods',
+    subbrand: 'Molecular & Nutritional Formulation Platform',
     tab_formulation: 'Formulation Lab',
     tab_molecular: 'Molecular & Vision',
     tab_agents: '4-Agent Copilot',

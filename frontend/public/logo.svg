@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B5D42"/>
+      <stop offset="100%" stop-color="#08422F"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="16" y1="44" x2="48" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#A7F3D0" stop-opacity="0.38"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <!-- Botanical leaf silhouette -->
+  <path d="M16 46C16 27 29 15 48 15C48 34 36 46 16 46Z" fill="url(#leaf)" stroke="#2DD4BF" stroke-width="1.5" stroke-opacity="0.55"/>
+  <!-- Molecular bonds -->
+  <path d="M32 23V32M32 32L21 41M32 32L43 41M21 41L43 41" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Molecular nodes -->
+  <circle cx="32" cy="18" r="5.5" fill="#5EEAD4" stroke="#08422F" stroke-width="1.5"/>
+  <circle cx="19" cy="42" r="5" fill="#A7F3D0" stroke="#08422F" stroke-width="1.5"/>
+  <circle cx="45" cy="42" r="5" fill="#A7F3D0" stroke="#08422F" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="4.2" fill="#FFFFFF"/>
+</svg>

@@ -21,7 +21,7 @@ def generate_impact_report(
     blend_score: BlendScore | None = None,
     econ_params: EconomicsRequest | None = None,
 ) -> str:
-    """Build a complete competition-grade Markdown Impact Report strictly from computed numbers."""
+    """Build a complete Data-Backed Markdown Impact Report strictly from computed numbers."""
     score = blend_score or score_blend(grams_by_id)
     baselines = compare_to_baselines(score, standard=score.standard, price_tier=score.price_tier)
     sensory = analyze_molecular_sensory(grams_by_id)
@@ -38,7 +38,7 @@ def generate_impact_report(
     lines: list[str] = [
         f"# Sampurna AI — Data-Backed Impact Report: {product_name}",
         "",
-        f"> **Challenge:** FoodSphere AI — *Future Foods* (International AI Builders Congress 2026)  ",
+        f"> **Platform:** Sampurna AI — Molecular & Sustainable Plant-Protein Formulation  ",
         f"> **Generated:** {timestamp} | **Scoring Standard:** `{std_label}` | **Price Tier:** `{score.price_tier}`  ",
         f"> **Epistemic Integrity Contract:** All quantitative nutrition, cost, carbon, and unit-economic figures below are **VERIFIED COMPUTED** deterministically over cited datasets (`core/scoring.py`, `core/optimizer.py`). Sensory compatibility indices are **MODEL ESTIMATED** via PubChem compound profiles; culinary execution and shelf-life are **AI HYPOTHESES** awaiting wet-lab validation.",
         "",
@@ -140,8 +140,8 @@ def generate_impact_report(
 
 
 def _cli() -> None:
-    parser = argparse.ArgumentParser(description="Generate deterministic IMPACT_REPORT.md")
-    parser.add_argument("--output", default="IMPACT_REPORT.md")
+    parser = argparse.ArgumentParser(description="Generate deterministic docs/IMPACT_REPORT.md")
+    parser.add_argument("--output", default="docs/IMPACT_REPORT.md")
     args = parser.parse_args()
 
     # Flagship Preset: Dhaka Complete Plant-Protein Keema (Meat-Analogue + Budget Complete)

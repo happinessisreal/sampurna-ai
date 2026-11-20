@@ -94,7 +94,7 @@ def generate_impact_report(
 
 
 def get_mcp_manifest() -> dict:
-    """Return structured MCP tool metadata for the UI & CloudCamp Portal Section 7 disclosure."""
+    """Return structured MCP tool metadata for the UI and external MCP clients."""
     tools = [
         {
             "name": "optimize_protein_blend",

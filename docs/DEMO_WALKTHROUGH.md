@@ -1,5 +1,5 @@
-# Sampurna AI — 170-Second (2m 50s) Demo Video Script
-**Balance:** Accessible to non-technical business reviewers while showcasing credible food-science and AI engineering depth (short sentences, zero third-party brand names).
+# Sampurna AI — 3-Minute Product Walkthrough Script
+**Style:** Accessible to non-technical business reviewers while showcasing credible food-science and AI engineering depth (short sentences, zero third-party brand names).
 
 ---
 
@@ -28,7 +28,7 @@
 - **Voiceover:**
   > "Our business model combines B2B formulation software for food manufacturers with institutional premix licensing. Look at one garment factory feeding 10,000 workers daily. Switching to Sampurna's fortified premixes gives every worker complete protein and bioavailable iron. At the same time, that single factory saves **5.13 Crore Taka** and **2,133 tonnes of CO₂** every year. Managers can export a cited Impact Report in one click."
 
-### [2:40 – 2:50] 6. Team & Closing CTA
+### [2:40 – 2:50] 6. Closing CTA
 - **Visual:** Return to the main dashboard (`বাংলা` view).
 - **Voiceover:**
-  > "We are Team `<YOUR_TEAM_NAME>`, combining food science and AI to end protein malnutrition in Bangladesh. Try Sampurna AI live at our public link today. Thank you!"
+  > "We are building from Bangladesh to end protein malnutrition through food science and AI. Try Sampurna AI live at our public link today. Thank you!"
